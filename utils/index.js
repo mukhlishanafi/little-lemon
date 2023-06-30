@@ -74,11 +74,11 @@ export const globalStyle = StyleSheet.create({
 });
 
 export function getSectionListData(data) {
-  let listData = [];
+  let sectionListData = [];
   let categoryData = [];
   if (data.length > 0) {
     data?.map((item) => {
-      const categoryIndex = listData.findIndex(
+      const categoryIndex = sectionListData.findIndex(
         (data) => data.category === item.category
       );
 
@@ -86,7 +86,7 @@ export function getSectionListData(data) {
         categoryData.push(item.category);
       }
 
-      listData[categoryIndex].push({
+      sectionListData.push({
         name: item.name,
         price: item.price,
         description: item.description,
@@ -95,7 +95,7 @@ export function getSectionListData(data) {
       });
     });
   }
-  return { listData, categoryData };
+  return { sectionListData, categoryData };
 }
 
 export function useUpdateEffect(effect, dependencies = []) {

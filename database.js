@@ -27,6 +27,7 @@ export async function getMenuItems() {
 }
 
 export function saveMenuItems(menuItems) {
+  console.log('db: ', menuItems);
   db.transaction((tx) => {
     let sqlStatement =
       'insert into menuitems (name, price, description, image, category) values ';
@@ -54,7 +55,7 @@ export async function filterByQueryAndCategories(query, activeCategories) {
   return new Promise((resolve, reject) => {
     db.transaction((tx) => {
       tx.executeSql(
-        'select * from menuitems where title like ? and (category = ? or category = ? or category = ?)',
+        'select * from menuitems where name like ? and (category = ? or category = ? or category = ?)',
         [`%${query}%`, ...activeCategories],
         (_, { rows }) => {
           resolve(rows._array);
