@@ -157,6 +157,7 @@ export default function HomeScreen({ navigation }) {
       </View>
 
       {/* category */}
+      <Text style={styles.sectionText}>Order for Delivery!</Text>
       <Filters
         selections={filterSelections}
         onChange={handleFiltersChange}
@@ -256,6 +257,16 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     padding: 8,
     marginTop: 20,
+  },
+  searchInput: {
+    flex: 1,
+  },
+  sectionText: {
+    marginTop: 20,
+    marginBottom: 10,
+    fontSize: 18,
+    fontWeight: '700',
+    paddingHorizontal: 16,
   },
   menuWrapper: {
     flexDirection: 'row',

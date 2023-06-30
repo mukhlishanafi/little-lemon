@@ -22,6 +22,16 @@ export const getImageUrl = (imageFileName) => {
   return `https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/${imageFileName}?raw=true`;
 };
 
+export const titleCase = (str) => {
+  return str
+    .toLowerCase()
+    .split(' ')
+    .map(function (word) {
+      return word.replace(word[0], word[0].toUpperCase());
+    })
+    .join(' ');
+};
+
 export const colors = {
   primary1: '#495E57',
   primary2: '#F4CE14',

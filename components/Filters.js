@@ -1,4 +1,5 @@
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { colors, titleCase } from '../utils';
 
 const Filters = ({ onChange, selections, sections }) => {
   return (
@@ -10,18 +11,27 @@ const Filters = ({ onChange, selections, sections }) => {
             onChange(index);
           }}
           style={{
-            flex: 1 / sections.length,
             justifyContent: 'center',
             alignItems: 'center',
-            padding: 16,
-            backgroundColor: selections[index] ? '#EE9972' : '#495E57',
+            padding: 8,
+            marginRight: 16,
+            backgroundColor: selections[index]
+              ? colors.primary1
+              : colors.secondary3,
             borderWidth: 1,
-            borderColor: 'white',
+            borderColor: colors.primary1,
+            borderRadius: 16,
           }}
         >
           <View>
-            <Text style={{ color: selections[index] ? 'black' : 'white' }}>
-              {section}
+            <Text
+              style={{
+                color: selections[index] ? colors.secondary3 : colors.primary1,
+                fontWeight: '600',
+                fontSize: 14,
+              }}
+            >
+              {titleCase(section)}
             </Text>
           </View>
         </TouchableOpacity>
@@ -32,10 +42,13 @@ const Filters = ({ onChange, selections, sections }) => {
 
 const styles = StyleSheet.create({
   filtersContainer: {
-    backgroundColor: 'green',
+    backgroundColor: colors.secondary3,
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
+    marginHorizontal: 16,
+    paddingBottom: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.secondary4,
   },
 });
 

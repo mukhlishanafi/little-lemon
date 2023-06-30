@@ -52,6 +52,8 @@ export function saveMenuItems(menuItems) {
 }
 
 export async function filterByQueryAndCategories(query, activeCategories) {
+  console.log('query: ', query);
+  console.log('activeCategories: ', activeCategories);
   return new Promise((resolve, reject) => {
     db.transaction((tx) => {
       tx.executeSql(
